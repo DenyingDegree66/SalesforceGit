@@ -5,8 +5,11 @@
 * @group        Record Trigger
 **********************************************************************/
 
-trigger AccountNamingTrigger on Account (before insert) {
-    for(Account a : Trigger.New) {
-        a.Name = a.Name + '_Test';
-}
+trigger AccountNamingTrigger on Account (before insert)  {
+    AccountNamingTriggerHandler AccHandler = new AccountNamingTriggerHandler();
+    
+    if(Trigger.isBefore){
+        AccHandler.AccountNamingTriggerHandler(Trigger.New);
+             }
+    
 }
