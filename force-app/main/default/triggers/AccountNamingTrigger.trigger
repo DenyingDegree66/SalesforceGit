@@ -6,10 +6,10 @@
 **********************************************************************/
 
 trigger AccountNamingTrigger on Account (before insert)  {
-    AccountNamingTriggerHandler AccHandler = new AccountNamingTriggerHandler();
-    
-    if(Trigger.isBefore){
-        AccHandler.AccountNamingTriggerHandler(Trigger.New);
+    AccountNamingTriggerHandler accHandler = new AccountNamingTriggerHandler();
+
+    if(Trigger.isInsert && Trigger.isBefore){
+        accHandler.AccountNamingTriggerHandler(Trigger.New);
              }
     
 }
