@@ -5,7 +5,14 @@
 * @group        Record Trigger
 **********************************************************************/
 public with sharing class AccountNamingTriggerHandler{
-    public void AccountNamingTriggerHandler(List<Account> Acc) {
+
+/*********************************************************************
+* @author       Jose Ignacio Cardenas Maya
+* @date         2021-08-18
+* @description  Account Naming Trigger Handler For Inserting Records
+* @param        
+**********************************************************************/
+    public void accountNamingTriggerHandler(List<Account> Acc) {
         for (Account a : Acc){
         a.Name = a.Name + '_Test';
     }
