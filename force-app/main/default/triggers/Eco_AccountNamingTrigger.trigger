@@ -5,11 +5,6 @@
 * @group        Record Trigger
 **********************************************************************/
 
-trigger AccountNamingTrigger on Account (before insert)  {
-    AccountNamingTriggerHandler accHandler = new AccountNamingTriggerHandler();
-
-    if(Trigger.isInsert && Trigger.isBefore){
-        accHandler.AccountNamingTriggerHandler(Trigger.New);
-             }
-    
+trigger Eco_AccountNamingTrigger on Account (before insert, before update)  {
+    Eco_TriggerFactory.createHandlerAndExecute(Account.SObjectType);
 }
